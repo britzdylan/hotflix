@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .bg-blur {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar {
+    -ms-overflow-style: initial;
+    scrollbar-width: thin;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    display: block;
+  }
+}
