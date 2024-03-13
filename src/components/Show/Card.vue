@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'aspect-[210/295] bg-neutral-200 rounded-md overflow-hidden snap-start lg:snap-end shrink-0',
+      'aspect-[210/295] w-full bg-neutral-200 rounded-md overflow-hidden snap-start lg:snap-end shrink-0',
       size
     ]"
   >
@@ -22,10 +22,6 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   size: 'small'
-})
-
-const size = computed(() => {
-  return props.size === 'small' ? 'w-[210px]' : 'w-[295px]'
 })
 </script>
 
