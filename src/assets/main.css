@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .touch-safe {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+
 @layer utilities {
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .bg-blur {
