@@ -1,6 +1,6 @@
 <template>
   <header
-    class="p-4 flex items-center justify-between sticky top-0 h-[80px] bg-slate-900 text-white bg-opacity-50 bg-blur z-10 rounded-b-xl"
+    class="p-4 flex items-center justify-between sticky top-0 h-[80px] bg-neutral-950 text-white bg-opacity-90 bg-blur z-10 rounded-b-xl"
   >
     <h1 class="font-semibold text-xl">For Dylan</h1>
     <IconsSearch />

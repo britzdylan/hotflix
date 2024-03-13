@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'aspect-[210/295] bg-slate-200 rounded-md overflow-hidden snap-start lg:snap-end shrink-0',
+      'aspect-[210/295] bg-neutral-200 rounded-md overflow-hidden snap-start lg:snap-end shrink-0',
       size
     ]"
   >

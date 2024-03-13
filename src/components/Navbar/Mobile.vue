@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="p-4 flex items-center justify-center gap-16 fixed bottom-0 left-0 right-0 h-[80px] bg-slate-900 text-white rounded-t-xl bg-opacity-50 bg-blur z-10"
+    class="p-4 flex items-center justify-center gap-16 fixed bottom-0 left-0 right-0 h-[80px] bg-neutral-800 text-white rounded-t-xl bg-opacity-90 bg-blur z-10"
   >
     <div class="touch-safe flex-col w-max">
       <svg
