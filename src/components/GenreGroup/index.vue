@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col">
-    <h2 class="text-lg font-semibold mb-4">Drama</h2>
+  <div class="flex flex-col gap-2">
+    <h2 class="text-lg font-semibold leading-3">Drama</h2>
     <GenreListMobile v-if="windowWidth <= 768" />
     <GenreListDesktop v-else />
   </div>
