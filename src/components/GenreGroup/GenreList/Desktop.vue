@@ -50,13 +50,7 @@
       class="flex gap-4 relative transition-all ease-in-out duration-500"
     >
       <!-- Item Start -->
-      <div
-        v-for="k in items"
-        :key="k + '_show'"
-        class="w-[200px] h-[300px] bg-slate-200 rounded-md shrink-0"
-      >
-        {{ k }}
-      </div>
+      <ShowCard size="large" v-for="k in 10" :key="k + '_show'"></ShowCard>
       <!-- Item end -->
     </div>
   </div>
@@ -64,6 +58,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import ShowCard from '@/components/Show/Card.vue'
 // State to track current slide index
 const currentIndex = ref(0)
 
