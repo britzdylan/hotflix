@@ -1,9 +1,6 @@
 <template>
   <div
-    :class="[
-      'aspect-[210/295] w-full bg-neutral-200 rounded-md overflow-hidden snap-start lg:snap-end shrink-0',
-      size
-    ]"
+    class="aspect-[210/295] bg-neutral-200 rounded-md overflow-hidden snap-start lg:snap-end shrink-0"
   >
     <img
       src="https://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg"
