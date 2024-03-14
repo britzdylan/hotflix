@@ -6,7 +6,7 @@
       <IconsX />
     </header>
 
-    <div v-for="(i, index) in images" class="fixed z-0 -mt-[60px] h-full overflow-hidden">
+    <div v-for="(i, index) in images" class="fixed z-0 -mt-[60px] w-full overflow-hidden">
       <div
         class="absolute top-0 left-0 right-0 bottom-0 z-10 bg-gradient-to-t from-neutral-950"
       ></div>
@@ -15,7 +15,7 @@
         v-show="index == currentIndex"
         :key="index + i"
         styles="styles"
-        class="object-cover object-top h-full transition-all scale-up"
+        class="object-cover object-top w-full transition-all scale-up"
         :src="i"
       />
     </div>
@@ -25,6 +25,7 @@
       :style="sectionPosition"
       class="z-10 fixed bottom-0 bg-neutral-950 border-t border-neutral-800 w-full p-4 rounded-t-3xl transition-all ease-in duration-300 flex flex-col items-start gap-1 h-[100p]"
     >
+      
       <div @click="showInfo" class="w-full h-max">
         <span class="w-20 h-1 bg-neutral-800 rounded-full block mx-auto mb-4"></span>
       </div>
