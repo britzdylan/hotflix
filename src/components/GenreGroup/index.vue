@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col last:pb-[85px]">
-    <h2 class="leading-3 xl:mb-1 xl:text-lg font-medium">{{ genre }}</h2>
+    <h2 class="leading-6 xl:mb-1 xl:text-lg font-medium">{{ genre }}</h2>
     <GenreListMobile v-if="windowWidth <= 768" :shows="shows" />
     <GenreListDesktop :shows="shows" v-else />
   </div>
