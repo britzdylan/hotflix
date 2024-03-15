@@ -1,17 +1,12 @@
 <template>
-  <div v-for="(i, index) in images" class="fixed z-0 w-full overflow-hidden">
-    <div
-      class="absolute top-0 left-0 right-0 bottom-0 z-10 bg-gradient-to-t from-neutral-950"
-    ></div>
-
+  <div
+    v-for="(i, index) in images"
+    :class="[{ fixed: fixed }, containerClass, 'z-0  overflow-hidden']"
+  >
     <img
       v-show="index == currentIndex"
       :key="index + i"
-      styles="styles"
-      :class="[
-        'object-contain object-top w-full transition-all',
-        { 'scale-up': images.length > 1 }
-      ]"
+      :class="['transition-all', { 'scale-up': images.length > 1 }, imageClass]"
       :src="i"
     />
   </div>
@@ -22,6 +17,9 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 interface IProps {
   images: string[]
+  fixed?: boolean
+  containerClass?: string
+  imageClass?: string
 }
 
 const props = defineProps<IProps>()
