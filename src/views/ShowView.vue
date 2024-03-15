@@ -11,7 +11,7 @@
     <section
       ref="showDetailsSection"
       :style="showDetailsSectionPosition"
-      class="z-10 fixed bottom-0 bg-neutral-950 border-t border-neutral-800 w-full p-4 rounded-t-3xl transition-all ease-in duration-300 flex flex-col items-start gap-1 h-[100p]"
+      class="z-10 absolute bottom-0 bg-neutral-950 border-t border-neutral-800 w-full p-4 rounded-t-3xl transition-all ease-in duration-300 flex flex-col items-start gap-1"
     >
       <div @click="toggleShowDetails" class="w-full h-max">
         <span class="w-20 h-1 bg-neutral-800 rounded-full block mx-auto mb-4"></span>
@@ -29,6 +29,9 @@
         :premiered="showData.premiered"
         :officialSite="showData.officialSite"
         :summary="showData.summary"
+        :seasons="showData.seasons"
+        :webChannel="showData.webChannel"
+        :network="showData.network"
       />
     </section>
   </main>
@@ -36,7 +39,7 @@
 
 <script setup lang="ts">
 import type { IShowDetailed } from '@/types'
-import { ref, computed, onMounted, onBeforeUnmount, onBeforeMount } from 'vue'
+import { ref, computed, onMounted, onBeforeMount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useShowsStore } from '@/stores/shows'
 import IconsX from '@/components/Icons/X.vue'
@@ -57,11 +60,9 @@ const showData = ref<IShowDetailed | null>(null)
 const scrollY = ref(0)
 const showDetailsSection = ref()
 const translateY = ref(0)
-const images = ref([
-  'https://static.tvmaze.com/uploads/images/original_untouched/0/1.jpg',
-  'https://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg',
-  'https://static.tvmaze.com/uploads/images/original_untouched/81/202628.jpg'
-])
+const images = computed(
+  () => showData.value?.images.filter((i) => i.type === 'poster').map((i) => i.image) || []
+)
 
 onBeforeMount(async () => {
   showData.value = await getShowById(showId)
@@ -74,13 +75,13 @@ onMounted(async () => {
 
 const showDetailsSectionPosition = computed(() => {
   return {
-    transform: `translateY(${translateY.value - 40}px)`
+    transform: `translateY(${translateY.value}px)`
   }
 })
 
 const toggleShowDetails = () => {
   if (translateY.value === 0)
-    translateY.value = showDetailsSection.value.getBoundingClientRect().height
+    translateY.value = showDetailsSection.value.getBoundingClientRect().height - 40
   else translateY.value = 0
 }
 </script>
