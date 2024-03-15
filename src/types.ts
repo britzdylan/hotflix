@@ -16,7 +16,7 @@ export interface IShow {
   id: number
   name: string
   genres: TGenres
-  rating: number | null
+  rating: number
   image: string
 }
 
