@@ -1,8 +1,10 @@
 <template>
   <BasePageView>
+    <ShowPopup v-if="showDesktopPopup" />
     <template #header>
       <Header />
     </template>
+    <h2 class="hidden lg:block text-3xl font-bold font-display mt-12">Most popular tv shows</h2>
 
     <GenreGroup
       v-for="i in getGenres"
@@ -19,12 +21,21 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useShowsStore } from '@/stores/shows'
+import { usePopup } from '@/composables/popup'
 import BasePageView from '@/components/Base/PageView/index.vue'
 import Header from '@/components/Header/index.vue'
 import GenreGroup from '@/components/GenreGroup/index.vue'
 import NavbarMobile from '@/components/Navbar/Mobile.vue'
-import { useShowsStore } from '@/stores/shows'
-import { storeToRefs } from 'pinia'
+import ShowPopup from '@/components/Show/Popup.vue'
+
+const { popup } = usePopup()
+
+const showDesktopPopup = computed(() => {
+  return popup.value && popup.value.includes('show_') && window.innerWidth > 768
+})
 
 const showsStore = useShowsStore()
 const { getGenres, getShowsByGenre } = storeToRefs(showsStore)
