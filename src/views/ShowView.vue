@@ -5,8 +5,10 @@
     >
       <IconsX @click="router.back" />
     </header>
-
-    <ShowSlideShow :images="images" />
+    <div class="fixed top-0 left-0 right-0 w-full">
+      <BaseGradientCover />
+      <ShowSlideShow :images="images" />
+    </div>
 
     <section
       ref="showDetailsSection"
@@ -47,6 +49,7 @@ import ShowRating from '@/components/Show/Rating.vue'
 import ShowStatus from '@/components/Show/Status.vue'
 import ShowSlideShow from '@/components/Show/SlideShow.vue'
 import ShowDetails from '@/components/Show/ShowDetails.vue'
+import BaseGradientCover from '@/components/Base/GradientCover.vue'
 
 const { getShowById } = useShowsStore()
 
