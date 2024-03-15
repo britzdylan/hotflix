@@ -1,23 +1,21 @@
 import fs from 'fs'
-
+const genreOptions = [
+  'Action',
+  'Adventure',
+  'Comedy',
+  'Crime',
+  'Drama',
+  'Family',
+  'Fantasy',
+  'Horror',
+  'Nature',
+  'Romance',
+  'Science-Fiction',
+  'Sports',
+  'Thriller',
+  'War'
+]
 function containsItems(array1) {
-  const genreOptions = [
-    'Action',
-    'Adventure',
-    'Comedy',
-    'Crime',
-    'Drama',
-    'Family',
-    'Fantasy',
-    'Horror',
-    'Nature',
-    'Romance',
-    'Science-Fiction',
-    'Sports',
-    'Thriller',
-    'War'
-  ]
-
   return genreOptions.some((item) => array1.includes(item))
 }
 
@@ -36,19 +34,35 @@ async function fetchAndSaveData() {
         throw new Error(`Failed to fetch data. Status: ${response.status}`)
       }
       const data = await response.json()
-      const optimisedData = data.map(({ id, name, language, genres, image }) => ({
+      const optimisedData = data.map(({ id, name, genres, image, rating, language }) => ({
         id,
         name,
-        language,
         genres,
-        image
+        image,
+        rating,
+        language
       }))
-      const filteredData = optimisedData.filter((show) => containsItems(show.genres))
+
+      let filteredData = optimisedData.filter((show) => containsItems(show.genres))
+      filteredData = filteredData.filter((show) => show.rating.average !== null)
+      filteredData = filteredData.filter((show) => show.image !== null)
+      filteredData = filteredData.filter((show) => show.language === 'English')
+
       allData.push(...filteredData)
       page++
     }
 
-    // Save all data to a JSON file
+    allData = allData.sort((a, b) => b.rating.average - a.rating.average)
+    allData = allData.map((show) => {
+      return {
+        id: show.id,
+        name: show.name,
+        genres: show.genres,
+        rating: show.rating.average,
+        image: show.image?.medium
+      }
+    })
+
     fs.writeFileSync('allShowsData.json', JSON.stringify(allData, null, 2))
     console.log('Data saved successfully.')
   } catch (error) {
