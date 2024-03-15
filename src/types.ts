@@ -8,8 +8,8 @@ export interface ApiError {
 export type TGenres = TGenre[]
 
 interface IShowImage {
-  medium: string
-  original: string
+  type: string
+  image: string
 }
 
 export interface IShow {
@@ -26,6 +26,10 @@ export interface IShowDetailed extends IShow {
   premiered: string
   ended: string | null
   language: string
+  network: string | null
+  webChannel: string | null
+  seasons: number
+  images: IShowImage[]
 }
 
 export interface ICachedShow {
