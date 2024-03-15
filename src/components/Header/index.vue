@@ -1,6 +1,23 @@
 <template>
   <BaseHeader>
-    <h1 class="font-semibold text-xl">For Dylan</h1>
+    <RouterLink to="/">
+      <img src="/logo.svg" alt="Logo" class="w-24" />
+    </RouterLink>
+    <ul class="hidden lg:flex gap-8 text-sm font-semibold">
+      <li>
+        <RouterLink class="text-neutral-50 hover:text-neutral-300" to="/">Home</RouterLink>
+      </li>
+      <li>
+        <RouterLink class="text-neutral-50 hover:text-neutral-300" to="/watchlist"
+          >Watchlist</RouterLink
+        >
+      </li>
+      <li>
+        <RouterLink class="text-neutral-50 hover:text-neutral-300" to="/watchlist"
+          >New & hot</RouterLink
+        >
+      </li>
+    </ul>
     <RouterLink to="/search">
       <IconsSearch />
     </RouterLink>
