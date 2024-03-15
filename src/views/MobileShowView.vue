@@ -26,6 +26,7 @@
 
       <ShowDetails
         v-if="showData"
+        :showId="showData.id"
         :name="showData.name"
         :language="showData.language"
         :premiered="showData.premiered"
