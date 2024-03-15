@@ -27,3 +27,8 @@ export interface IShowDetailed extends IShow {
   ended: string | null
   language: string
 }
+
+export interface ICachedShow {
+  data: IShowDetailed
+  timestamp: number
+}
