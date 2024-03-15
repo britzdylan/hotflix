@@ -18,19 +18,17 @@
   >
     <BaseButton> Official Site </BaseButton>
   </a>
-  <button
-    class="mb-3 w-full h-[40px] p-4 flex items-center justify-center text-sm font-semibold bg-transparent border border-white rounded-md"
-  >
-    Add to Watchlist
-  </button>
+  <WishListAdd :showId="showId" />
   <div v-html="summary" class="text-sm text-neutral-200"></div>
 </template>
 
 <script setup lang="ts">
 import BaseButton from '@/components/Base/Button.vue'
+import WishListAdd from '@/components/WishList/Add.vue'
 import { computed } from 'vue'
 
 interface IProps {
+  showId: number
   name: string
   language: string
   premiered: string
