@@ -25,7 +25,6 @@
       :style="sectionPosition"
       class="z-10 fixed bottom-0 bg-neutral-950 border-t border-neutral-800 w-full p-4 rounded-t-3xl transition-all ease-in duration-300 flex flex-col items-start gap-1 h-[100p]"
     >
-      
       <div @click="showInfo" class="w-full h-max">
         <span class="w-20 h-1 bg-neutral-800 rounded-full block mx-auto mb-4"></span>
       </div>
@@ -81,10 +80,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed, onMounted } from 'vue'
+import { useShowsStore } from '@/stores/shows'
 import IconsX from '@/components/Icons/X.vue'
+import { useRoute } from 'vue-router'
 
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-
+const route = useRoute()
+const { getShowById } = useShowsStore()
+const showId = Array.isArray(route.params.id) ? Number(route.params.id[0]) : Number(route.params.id)
 const scrollY = ref(0)
 const section = ref()
 const translateY = ref(0)
@@ -95,12 +98,13 @@ const images = ref([
 ])
 let currentIndex = ref(0)
 
-onMounted(() => {
+onMounted(async () => {
+  let data = await getShowById(showId)
+  console.log(data)
   setInterval(() => {
     updateImage()
-  }, 6000) // Change image every 4 seconds
+  }, 6000)
   scrollY.value = window.scrollY
-  translateY.value = section.value.getBoundingClientRect().height
   window.addEventListener('scroll', () => {
     scrollY.value = window.scrollY
   })
