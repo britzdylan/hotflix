@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: '/shows/:id',
       name: 'ShowView',
-      component: () => import('@/views/ShowView.vue')
+      component: () => import('@/views/MobileShowView.vue')
     }
   ]
 })
