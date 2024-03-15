@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-for="(i, index) in images"
-    :class="[{ fixed: fixed }, containerClass, 'z-0  overflow-hidden']"
-  >
+  <div v-for="(i, index) in images" :class="[containerClass, 'z-0  overflow-hidden']">
     <img
       v-show="index == currentIndex"
       :key="index + i"
@@ -17,7 +14,6 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 interface IProps {
   images: string[]
-  fixed?: boolean
   containerClass?: string
   imageClass?: string
 }
