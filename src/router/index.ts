@@ -14,7 +14,7 @@ const router = createRouter({
       component: () => import('@/views/SearchView.vue')
     },
     {
-      path: '/show/:id',
+      path: '/shows/:id',
       name: 'ShowView',
       component: () => import('@/views/ShowView.vue')
     }
