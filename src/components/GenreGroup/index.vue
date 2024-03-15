@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col gap-2 last:pb-[85px]">
-    <h2 class="text-lg font-semibold leading-3">{{ genre }}</h2>
+  <div class="flex flex-col last:pb-[85px]">
+    <h2 class="leading-3 xl:mb-1 xl:text-lg font-medium">{{ genre }}</h2>
     <GenreListMobile v-if="windowWidth <= 768" :shows="shows" />
-    <GenreListDesktop v-else />
+    <GenreListDesktop :shows="shows" v-else />
   </div>
 </template>
 
