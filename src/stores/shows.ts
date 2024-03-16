@@ -8,20 +8,16 @@ export const useShowsStore = defineStore('showStore', {
   state: () => {
     return {
       allShows,
-      genres
+      genres,
+      mostPopularShows: [] as { genre: TGenre; shows: IShow[] }[]
     }
   },
   getters: {
     getGenres(): TGenres {
       return this.genres
     },
-    getShowsByGenre: (state) => {
-      return state.genres.map((genre: TGenre) => {
-        return {
-          genre,
-          shows: state.allShows.filter((show) => show.genres[0] === genre).slice(0, 9)
-        }
-      })
+    getMostPopularShows(): { genre: TGenre; shows: IShow[] }[] {
+      return this.mostPopularShows
     },
     getHotNewShows: (state) => {
       const oneYearAgo = new Date()
@@ -40,6 +36,35 @@ export const useShowsStore = defineStore('showStore', {
     }
   },
   actions: {
+    prepareMostPopularShows() {
+      this.mostPopularShows = this.genres.map((genre: TGenre) => {
+        return {
+          genre,
+          shows: this.allShows
+            .filter((show) => show.genres[0] === genre)
+            .sort((a, b) => b.rating - a.rating)
+            .slice(0, 9)
+        }
+      })
+    },
+    traverseShowsPerGenre(genre: TGenre) {
+      const currentGenre = this.mostPopularShows.find((show) => show.genre === genre)
+      if (currentGenre) {
+        const length = currentGenre.shows.length
+        const showsToAdd = length + 3
+        const newShows = this.allShows
+          .filter((show) => show.genres[0] === genre)
+          .sort((a, b) => b.rating - a.rating)
+          .slice(length, showsToAdd)
+        this.mostPopularShows = this.mostPopularShows.map((item) => {
+          if (item.genre === genre) {
+            return { ...item, shows: [...item.shows, ...newShows] }
+          } else {
+            return item
+          }
+        })
+      }
+    },
     prepareShowData(rawData: any): IShowDetailed {
       return {
         id: rawData.id,
