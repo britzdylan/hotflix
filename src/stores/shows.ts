@@ -27,13 +27,13 @@ export const useShowsStore = defineStore('showStore', {
         .filter((show) => show.rating >= 7.5)
         .filter((show) => show.premiered && new Date(show.premiered) >= oneYearAgo)
         .sort((a, b) => b.rating - a.rating)
+    },
+    getRecommendedShows: (state) => {
+      return state.allShows
+        .filter((show) => show.rating >= 7.5)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 27)
     }
-    // getRecommendedShows: (state) => {
-    //   return state.allShows
-    //     .filter((show) => show.rating >= 7.5)
-    //     .sort(() => Math.random() - 0.5)
-    //     .slice(0, 27)
-    // }
   },
   actions: {
     prepareShowData(rawData: any): IShowDetailed {
