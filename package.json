@@ -12,7 +12,8 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --ignore syncDB.js",
     "format": "prettier --write src/",
-    "prepare": "npm run lint && npm run format && npm run type-check"
+    "prepare": "npm run lint && npm run format && npm run type-check",
+    "sync:db": "node src/utils/sync-db.js"
   },
   "dependencies": {
     "pinia": "^2.1.7",
