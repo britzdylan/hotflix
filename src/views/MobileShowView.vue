@@ -1,8 +1,6 @@
 <template>
   <main class="flex flex-col min-h-screen">
-    <header
-      class="!justify-end inline-flex z-20 h-[60px] sticky top-0 transition-colors ease-in duration-100 rounded"
-    >
+    <header class="!justify-end inline-flex z-20">
       <IconsX @click="router.back" />
     </header>
     <div class="fixed top-0 left-0 right-0 w-full h-full">
@@ -10,7 +8,7 @@
       <ShowSlideShow
         imageClass="h-full w-auto object-cover"
         containerClass="bottom-0"
-        :images="images"
+        :images="getImages('poster')"
       />
     </div>
 
@@ -23,59 +21,46 @@
         <span class="w-20 h-1 bg-neutral-800 rounded-full block mx-auto mb-4"></span>
       </div>
 
-      <div v-if="showData" class="inline-flex items-start w-full justify-between">
-        <ShowAverageRating :rating="showData.rating" />
-        <ShowStatusTextIcon :status="showData.ended" />
+      <div v-if="showDetails" class="inline-flex items-start w-full justify-between">
+        <ShowAverageRating :rating="showDetails.rating" />
+        <ShowStatusTextIcon :status="showDetails.ended" />
       </div>
 
       <ShowDetails
-        v-if="showData"
-        :showId="showData.id"
-        :name="showData.name"
-        :language="showData.language"
-        :premiered="showData.premiered"
-        :officialSite="showData.officialSite"
-        :summary="showData.summary"
-        :seasons="showData.seasons"
-        :webChannel="showData.webChannel"
-        :network="showData.network"
+        v-if="showDetails"
+        :showId="showDetails.id"
+        :name="showDetails.name"
+        :language="showDetails.language"
+        :premiered="showDetails.premiered"
+        :officialSite="showDetails.officialSite"
+        :summary="showDetails.summary"
+        :seasons="showDetails.seasons"
+        :webChannel="showDetails.webChannel"
+        :network="showDetails.network"
       />
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import type { IShowDetailed } from '@/types'
 import { ref, computed, onMounted, onBeforeMount } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useShowsStore } from '@/stores/shows'
+import { useRouter } from 'vue-router'
+import { useShowDetails } from '@/composables/showDetails'
+import { defineAsyncComponent } from 'vue'
 import IconsX from '@/components/Icons/X.vue'
 import ShowAverageRating from '@/components/Show/AverageRating.vue'
 import ShowStatusTextIcon from '@/components/Show/StatusTextIcon.vue'
-import ShowSlideShow from '@/components/Show/SlideShow.vue'
-import ShowDetails from '@/components/Show/ShowDetails.vue'
 import BaseGradientCover from '@/components/Base/GradientCover.vue'
 
-const { getShowById } = useShowsStore()
+const ShowSlideShow = defineAsyncComponent(() => import('@/components/Show/SlideShow.vue'))
+const ShowDetails = defineAsyncComponent(() => import('@/components/Show/ShowDetails.vue'))
 
-const route = useRoute()
 const router = useRouter()
-const showId = Array.isArray(route.params.id) ? Number(route.params.id[0]) : Number(route.params.id)
-
-const isLoading = ref(true)
-const showData = ref<IShowDetailed | null>(null)
+const { showDetails, getImages } = useShowDetails()
 
 const scrollY = ref(0)
 const showDetailsSection = ref()
 const translateY = ref(0)
-const images = computed(
-  () => showData.value?.images.filter((i) => i.type === 'poster').map((i) => i.image) || []
-)
-
-onBeforeMount(async () => {
-  showData.value = await getShowById(showId)
-  isLoading.value = false
-})
 
 onMounted(async () => {
   scrollY.value = window.scrollY
