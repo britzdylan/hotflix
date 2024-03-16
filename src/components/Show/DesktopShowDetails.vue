@@ -3,13 +3,13 @@
     class="fixed bottom-0 left-0 right-0 top-0 w-full bg-neutral-950/60 bg-blur z-50 mx-auto flex items-center justify-center"
   >
     <section
-      class="max-w-screen-md relative rounded-md overflow-hidden shadow-lg bg-neutral-950 max-h-[80vh] flex flex-col"
+      class="max-w-screen-md relative rounded-md overflow-hidden shadow-lg bg-neutral-950 max-h-[80vh] flex flex-col w-full"
     >
       <IconsX class="absolute top-2 right-2 z-20" @click="closePopup" />
       <ShowStatus v-if="showData" :status="showData.ended" class="absolute top-5 left-8 z-20" />
       <ShowRating v-if="showData" :rating="showData.rating" class="absolute top-12 left-8 z-20" />
       <div class="relative overflow-hidden flex-grow h-96">
-        <BaseGradientCover />
+        <BaseGradientCover class="rotate-180" />
 
         <ShowSlideShow
           v-if="images.length"

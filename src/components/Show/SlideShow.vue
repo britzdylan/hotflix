@@ -1,5 +1,5 @@
 <template>
-  <div v-for="(i, index) in images" :class="[containerClass, 'z-0  overflow-hidden']">
+  <div v-for="(i, index) in images" :class="[containerClass, 'z-0 overflow-hidden absolute top-0 left-0 right-0']">
     <img
       v-show="index == currentIndex"
       :key="index + i"

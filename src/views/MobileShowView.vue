@@ -5,9 +5,13 @@
     >
       <IconsX @click="router.back" />
     </header>
-    <div class="fixed top-0 left-0 right-0 w-full">
+    <div class="fixed top-0 left-0 right-0 w-full h-full">
       <BaseGradientCover />
-      <ShowSlideShow :images="images" />
+      <ShowSlideShow
+        imageClass="h-full w-auto object-cover"
+        containerClass="bottom-0"
+        :images="images"
+      />
     </div>
 
     <section

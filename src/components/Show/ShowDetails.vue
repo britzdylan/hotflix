@@ -1,7 +1,7 @@
 <template>
   <h2 class="text-lg font-semibold">{{ name }}</h2>
   <div class="flex gap-2 my-1 items-center">
-    <span class="text-sm text-neutral-300">{{ language ?? 'English' }}</span>
+    <span class="text-sm text-neutral-300">{{ language ?? 'Unknown' }}</span>
     <div class="w-1 h-1 rounded-full bg-neutral-600"></div>
     <span class="text-sm text-neutral-300">{{ premieredYear }}</span>
     <div class="w-1 h-1 rounded-full bg-neutral-600"></div>

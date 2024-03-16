@@ -4,10 +4,15 @@
       <HeaderSearch @search="logSearch" />
     </template>
     <h2 class="text-xl font-semibold">{{ title }}</h2>
-    <ShowGridList v-if="!loading" :shows="showList" />
-    <div v-else class="flex justify-center items-center flex-grow h-full">
-      <Loader />
-    </div>
+    <template v-if="showList.length">
+      <ShowGridList v-if="!loading" :shows="showList" />
+      <div v-else class="flex justify-center items-center flex-grow h-full">
+        <Loader />
+      </div>
+    </template>
+    <template v-else>
+      <div class="flex justify-center items-center flex-grow h-full">No Results</div>
+    </template>
   </BasePageView>
 </template>
 
@@ -34,7 +39,7 @@ const logSearch = (search: string) => {
   loading.value = true
   query.value = search
 
-  if (typingTimeout) {
+  if (typingTimeout.value) {
     clearTimeout(typingTimeout.value)
   }
 
@@ -46,7 +51,7 @@ const logSearch = (search: string) => {
 }
 
 const showList = computed(() => {
-  if (searchResults.value.length > 0) {
+  if (searchResults.value.length > 0 || query.value.length > 0) {
     return searchResults.value
   } else {
     return getRecommendedShows
