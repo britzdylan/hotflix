@@ -13,11 +13,10 @@ export const useWatchListStore = defineStore('watchList', {
       return this.WatchList
     },
     getWatchListShows(): IShow[] {
-      const watchList = this.WatchList
       const watchListShows: IShow[] = []
       const shows = useShowsStore().allShows
       for (const show of shows) {
-        if (watchList.includes(show.id)) {
+        if (this.WatchList.includes(show.id)) {
           watchListShows.push(show)
         }
       }

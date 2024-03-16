@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
 interface IProps {
-  status: string | null
+  status: string | null  
 }
 
 const props = defineProps<IProps>()

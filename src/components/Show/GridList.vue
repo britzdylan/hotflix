@@ -33,5 +33,3 @@ const navigateToShow = (id: number) => {
   }
 }
 </script>
-
-<style scoped></style>

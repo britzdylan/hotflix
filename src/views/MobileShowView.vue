@@ -43,10 +43,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeMount } from 'vue'
+import { ref, computed, onMounted, defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import { useShowDetails } from '@/composables/showDetails'
-import { defineAsyncComponent } from 'vue'
+
 import IconsX from '@/components/Icons/X.vue'
 import ShowAverageRating from '@/components/Show/AverageRating.vue'
 import ShowStatusTextIcon from '@/components/Show/StatusTextIcon.vue'

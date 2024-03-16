@@ -3,9 +3,9 @@
   <div class="flex gap-2 my-1 items-center">
     <span class="text-sm text-neutral-300">{{ language ?? 'Unknown' }}</span>
     <div class="w-1 h-1 rounded-full bg-neutral-600"></div>
-    <span class="text-sm text-neutral-300">{{ premieredYear }}</span>
+    <span class="text-sm text-neutral-300">{{ premieredYear() }}</span>
     <div class="w-1 h-1 rounded-full bg-neutral-600"></div>
-    <span class="text-sm text-neutral-300">{{ channel }}</span>
+    <span class="text-sm text-neutral-300">{{ channel() }}</span>
     <div class="w-1 h-1 rounded-full bg-neutral-600"></div>
     <span class="text-sm text-neutral-200">{{ seasons }} seasons</span>
   </div>
@@ -24,7 +24,6 @@
 
 <script setup lang="ts">
 import WatchListAddButton from '@/components/WatchList/AddButton.vue'
-import { computed } from 'vue'
 
 interface IProps {
   showId: number
@@ -40,13 +39,13 @@ interface IProps {
 
 const props = defineProps<IProps>()
 
-const premieredYear = computed(() => {
+const premieredYear = () => {
   return new Date(props.premiered).getFullYear()
-})
+}
 
-const channel = computed(() => {
+const channel = () => {
   return props.webChannel || props.network
-})
+}
 </script>
 
 <style scoped></style>

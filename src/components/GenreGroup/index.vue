@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-interface props {
+interface IProps {
   genre: string
   shows: IShow[]
 }
@@ -17,7 +17,7 @@ import GenreListMobile from './GenreList/Mobile.vue'
 import GenreListDesktop from './GenreList/Desktop.vue'
 import type { IShow } from '@/types'
 
-defineProps<props>()
+defineProps<IProps>()
 const windowWidth = ref(window.innerWidth)
 </script>
 

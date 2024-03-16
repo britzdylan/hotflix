@@ -66,12 +66,12 @@ const nextSlide = () => {
     currentIndex.value = 0
     return
   }
-  currentIndex.value++
+  currentIndex.value += 2
 }
 
 // Method to move to the previous slide
 const prevSlide = () => {
-  currentIndex.value--
+  currentIndex.value -= 2
 }
 </script>
 

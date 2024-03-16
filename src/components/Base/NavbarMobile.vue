@@ -22,5 +22,3 @@ import IconsHome from '@/components/Icons/Home.vue'
 import IconsFire from '@/components/Icons/Fire.vue'
 import IconsPlay from '@/components/Icons/Play.vue'
 </script>
-
-<style scoped></style>

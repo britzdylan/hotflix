@@ -9,8 +9,8 @@
 <script setup lang="ts">
 import type { IShow } from '@/types'
 import ListingCard from '@/components/Show/ListingCard.vue'
-interface props {
+interface IProps {
   shows: IShow[]
 }
-defineProps<props>()
+defineProps<IProps>()
 </script>
