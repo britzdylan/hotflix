@@ -5,7 +5,7 @@
     </RouterLink>
     <ul class="hidden md:flex gap-8 text-sm font-semibold text-white/50">
       <li>
-        <RouterLink class="hover:text-neutral-300" to="/">Home</RouterLink>
+        <RouterLink class="hover:text-neutral-300" to="/">Most Popular</RouterLink>
       </li>
       <li>
         <RouterLink class="hover:text-neutral-300" to="/watchlist">Watchlist</RouterLink>
