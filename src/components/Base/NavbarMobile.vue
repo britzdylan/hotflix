@@ -4,7 +4,7 @@
   >
     <RouterLink to="/" class="flex flex-col items-center justify-between h-10">
       <IconsHome class="h-max" />
-      <small>Home</small>
+      <small>Most Popular</small>
     </RouterLink>
     <RouterLink to="/shows/hot" class="flex flex-col items-center justify-between h-10">
       <IconsFire class="h-max" />
