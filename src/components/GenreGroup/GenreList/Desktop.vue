@@ -39,12 +39,14 @@ import ListingCard from '@/components/Show/ListingCard.vue'
 import IconsChevronDouble from '@/components/Icons/ChevronDouble.vue'
 import type { IShow } from '@/types'
 import { usePopup } from '@/composables/popup'
+import { useShowsStore } from '@/stores/shows'
 
 interface IProps {
+  genre: string
   shows: IShow[]
 }
 const props = defineProps<IProps>()
-
+const { traverseShowsPerGenre } = useShowsStore()
 const { showPopup } = usePopup()
 
 // State to track current slide index
@@ -62,10 +64,13 @@ onMounted(() => {
 })
 
 const nextSlide = () => {
-  if (currentIndex.value + slidesVisible.value >= props.shows.length) {
-    currentIndex.value = 0
-    return
+  if (currentIndex.value + slidesVisible.value >= props.shows.length - 1) {
+    traverseShowsPerGenre(props.genre)
+    console.log('traversing')
   }
+
+  console.log('currentIndex', currentIndex.value + slidesVisible.value, props.shows.length - 1)
+
   currentIndex.value += 2
 }
 
