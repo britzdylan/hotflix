@@ -1,7 +1,7 @@
 <template>
   <BasePageView>
     <template #header>
-      <Header v-if="windowWidth > 768" />
+      <BaseHeader v-if="windowWidth > 768" />
 
       <HeaderMobileSubPage v-else class="!justify-start">
         <h2 class="text-xl font-semibold flex-grow">My Watch List</h2>

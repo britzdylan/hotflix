@@ -1,7 +1,7 @@
 <template>
   <BasePageView>
     <template #header>
-      <Header />
+      <BaseHeader />
     </template>
     <h2 class="text-lg lg:text-3xl font-bold font-display lg:mt-12">Most popular tv shows</h2>
 

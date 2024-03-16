@@ -40,10 +40,10 @@ import IconsChevronDouble from '@/components/Icons/ChevronDouble.vue'
 import type { IShow } from '@/types'
 import { usePopup } from '@/composables/popup'
 
-interface props {
+interface IProps {
   shows: IShow[]
 }
-const props = defineProps<props>()
+const props = defineProps<IProps>()
 
 const { showPopup } = usePopup()
 
