@@ -16,8 +16,12 @@ export const useShowsStore = defineStore('showStore', {
       return this.genres
     },
     getShowsByGenre: (state) => {
-      return (genre: TGenre) =>
-        state.allShows.filter((show) => show.genres[0] === genre).slice(0, 9)
+      return state.genres.map((genre: TGenre) => {
+        return {
+          genre,
+          shows: state.allShows.filter((show) => show.genres[0] === genre).slice(0, 9)
+        }
+      })
     },
     getHotNewShows: (state) => {
       const oneYearAgo = new Date()

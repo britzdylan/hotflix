@@ -5,13 +5,7 @@
     </template>
     <h2 class="hidden lg:block text-3xl font-bold font-display mt-12">Most popular tv shows</h2>
 
-    <GenreGroup
-      v-for="i in getGenres"
-      v-bind="{
-        genre: i,
-        shows: getShowsByGenre(i)
-      }"
-    />
+    <GenreGroup v-for="i in getShowsByGenre" v-bind="i" />
 
     <template #footer>
       <NavbarMobile />
@@ -28,5 +22,5 @@ import GenreGroup from '@/components/GenreGroup/index.vue'
 import NavbarMobile from '@/components/Navbar/Mobile.vue'
 
 const showsStore = useShowsStore()
-const { getGenres, getShowsByGenre } = storeToRefs(showsStore)
+const { getShowsByGenre } = storeToRefs(showsStore)
 </script>
