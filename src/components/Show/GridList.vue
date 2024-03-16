@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7  gap-2 lg:gap-4">
+  <div class="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-2 lg:gap-4">
     <ShowCard
       class="cursor-pointer max-w-[280px] hover:scale-95 hover:outline outline-2 outline-offset-1 outline-neutral-50 transition-transform duration-300 ease-out"
       @click="navigateToShow(i.id)"
