@@ -99,6 +99,17 @@ export const useShowsStore = defineStore('showStore', {
       const preparedData = this.prepareShowData(rawData)
       this.cacheShow(preparedData)
       return preparedData as IShowDetailed
+    },
+    async searchShows(query: string): Promise<IShow[]> {
+      const rawData = await getData(`search/shows?q=${query}`)
+      return rawData
+        .map((item: any) => ({
+          id: item.show.id,
+          name: item.show.name,
+          image: item.show.image?.medium ?? null,
+          rating: item.show.rating?.average ?? 0
+        }))
+        .filter((item: IShow) => item.image !== null)
     }
   }
 })
