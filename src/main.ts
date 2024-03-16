@@ -7,7 +7,7 @@ import BaseButton from '@/components/Base/Button.vue'
 import BaseHeader from '@/components/Base/Header/index.vue'
 import NavbarMobile from '@/components/Base/NavbarMobile.vue'
 import HeaderMobileSubPage from '@/components/Base/Header/MobileSubPage.vue'
-import Loader from '@/components/Icons/Loading.vue'
+import LoaderIcon from '@/components/Icons/Loading.vue'
 
 import App from './App.vue'
 import router from './router'
@@ -21,5 +21,5 @@ app.component('BaseButton', BaseButton)
 app.component('BaseHeader', BaseHeader)
 app.component('NavbarMobile', NavbarMobile)
 app.component('HeaderMobileSubPage', HeaderMobileSubPage)
-app.component('Loader', Loader)
+app.component('LoaderIcon', LoaderIcon)
 app.mount('#app')
