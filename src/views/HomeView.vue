@@ -1,6 +1,5 @@
 <template>
   <BasePageView>
-    <DesktopShowDetails v-if="showDesktopShowDetails" />
     <template #header>
       <Header />
     </template>
@@ -21,21 +20,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useShowsStore } from '@/stores/shows'
-import { usePopup } from '@/composables/popup'
 import BasePageView from '@/components/Base/PageView/index.vue'
 import Header from '@/components/Header/index.vue'
 import GenreGroup from '@/components/GenreGroup/index.vue'
 import NavbarMobile from '@/components/Navbar/Mobile.vue'
-import DesktopShowDetails from '@/components/Show/DesktopShowDetails.vue'
-
-const { popup } = usePopup()
-
-const showDesktopShowDetails = computed(() => {
-  return popup.value && popup.value.includes('show_') && window.innerWidth > 768
-})
 
 const showsStore = useShowsStore()
 const { getGenres, getShowsByGenre } = storeToRefs(showsStore)
