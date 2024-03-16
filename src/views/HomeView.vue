@@ -3,7 +3,8 @@
     <template #header>
       <BaseHeader />
     </template>
-    <h2 class="text-lg lg:text-3xl font-bold font-display lg:mt-12">Most popular tv shows</h2>
+
+    <h2 class="text-xl font-semibold">Most Highly Rated</h2>
 
     <GenreGroup v-for="i in getShowsByGenre" v-bind="i" :key="i.genre" />
 
