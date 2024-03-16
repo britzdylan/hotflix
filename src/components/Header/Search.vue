@@ -1,6 +1,6 @@
 <template>
   <BaseHeader class="gap-4">
-    <IconsChevron class="rotate-90" />
+    <IconsChevron @click="$router.back" class="rotate-90" />
     <input
       type="text"
       class="bg-neutral-700 placeholder:text-neutral-400 border-none text-white w-full px-4 py-3 rounded-md outline-none"
