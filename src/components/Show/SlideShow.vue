@@ -29,7 +29,7 @@ const intervalId = ref(0)
 const updateImage = () => {
   if (props.images.length === 1) {
     currentIndex.value = 0
-    clearInterval(intervalId.value)
+    window.clearInterval(intervalId.value)
 
     return
   }
@@ -37,13 +37,13 @@ const updateImage = () => {
 }
 
 onMounted(() => {
-  intervalId.value = setInterval(() => {
+  intervalId.value = window.setInterval(() => {
     updateImage()
   }, 6000)
 })
 
 onBeforeUnmount(() => {
-  clearInterval(intervalId.value)
+  window.clearInterval(intervalId.value)
 })
 </script>
 

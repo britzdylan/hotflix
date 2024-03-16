@@ -47,7 +47,7 @@ const logSearch = () => {
     clearTimeout(typingTimeout.value)
   }
 
-  typingTimeout.value = setTimeout(async () => {
+  typingTimeout.value = window.setTimeout(async () => {
     isTyping.value = false
     searchResults.value = await searchShows(query.value)
     loading.value = false
