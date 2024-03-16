@@ -1,5 +1,8 @@
 <template>
-  <div v-for="(i, index) in images" :class="[containerClass, 'z-0 overflow-hidden absolute top-0 left-0 right-0']">
+  <div
+    v-for="(i, index) in images"
+    :class="['z-0 overflow-hidden absolute top-0 left-0 right-0', containerClass]"
+  >
     <img
       v-show="index == currentIndex"
       :key="index + i"
@@ -26,13 +29,14 @@ const intervalId = ref(0)
 const updateImage = () => {
   if (props.images.length === 1) {
     currentIndex.value = 0
+    clearInterval(intervalId.value)
+
     return
   }
   currentIndex.value = (currentIndex.value + 1) % props.images.length
 }
 
 onMounted(() => {
-  // if (props.images.length === 0 || props.images.length === 1) return
   intervalId.value = setInterval(() => {
     updateImage()
   }, 6000)

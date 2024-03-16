@@ -6,8 +6,10 @@
       class="max-w-screen-md relative rounded-md overflow-hidden shadow-lg bg-neutral-950 max-h-[80vh] flex flex-col w-full"
     >
       <IconsX class="absolute top-2 right-2 z-20" @click="closePopup" />
-      <ShowStatus v-if="showData" :status="showData.ended" class="absolute top-5 left-8 z-20" />
-      <ShowRating v-if="showData" :rating="showData.rating" class="absolute top-12 left-8 z-20" />
+      <template v-if="showData">
+        <ShowStatus :status="showData.ended" class="absolute top-5 left-8 z-20" />
+        <ShowRating :rating="showData.rating" class="absolute top-12 left-8 z-20" />
+      </template>
       <div class="relative overflow-hidden flex-grow h-96">
         <BaseGradientCover class="rotate-180" />
 
@@ -38,20 +40,19 @@
 </template>
 
 <script setup lang="ts">
-import IconsX from '@/components/Icons/X.vue'
 import type { IShowDetailed } from '@/types'
-import { ref, computed, onMounted, onBeforeMount } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref, computed, onBeforeMount } from 'vue'
+import { useRoute } from 'vue-router'
 import { usePopup } from '@/composables/popup'
 import { useShowsStore } from '@/stores/shows'
-import ShowDetails from './ShowDetails.vue'
+import IconsX from '@/components/Icons/X.vue'
 import BaseGradientCover from '@/components/Base/GradientCover.vue'
+import ShowDetails from './ShowDetails.vue'
 import ShowRating from './Rating.vue'
 import ShowStatus from './Status.vue'
 import ShowSlideShow from './SlideShow.vue'
 
 const route = useRoute()
-const router = useRouter()
 const { getShowById } = useShowsStore()
 const { popup, closePopup } = usePopup()
 
@@ -73,11 +74,6 @@ const showData = ref<IShowDetailed | null>(null)
 onBeforeMount(async () => {
   showData.value = await getShowById(showId)
   isLoading.value = false
-})
-
-onMounted(async () => {
-  console.log('mounted')
-  console.log(route.query.popup)
 })
 </script>
 

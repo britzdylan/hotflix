@@ -48,3 +48,7 @@
 .list-leave-to {
   opacity: 0;
 }
+
+.router-link-active {
+  color: white;
+}

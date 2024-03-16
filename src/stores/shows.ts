@@ -34,7 +34,7 @@ export const useShowsStore = defineStore('showStore', {
     },
     getRecommendedShows: (state) => {
       return state.allShows
-        .filter((show) => show.rating >= 7.5)
+        .filter((show) => show.rating >= 7.9)
         .sort(() => Math.random() - 0.5)
         .slice(0, 27)
     }

@@ -3,7 +3,7 @@
     <template #header>
       <Header />
     </template>
-    <h2 class="hidden lg:block text-3xl font-bold font-display mt-12">Most popular tv shows</h2>
+    <h2 class="text-lg lg:text-3xl font-bold font-display lg:mt-12">Most popular tv shows</h2>
 
     <GenreGroup v-for="i in getShowsByGenre" v-bind="i" />
 

@@ -29,5 +29,3 @@ const handleWishListListing = () => {
   }
 }
 </script>
-
-<style scoped></style>

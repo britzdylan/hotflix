@@ -1,7 +1,15 @@
 <template>
   <BasePageView>
     <template #header>
-      <HeaderSearch @search="logSearch" />
+      <HeaderMobileSubPage class="!justify-start">
+        <input
+          v-model="query"
+          @input="logSearch"
+          type="search"
+          class="bg-neutral-700 placeholder:text-neutral-400 border-none text-white w-full px-4 py-3 rounded-md outline-none"
+          placeholder="Search for show names"
+        />
+      </HeaderMobileSubPage>
     </template>
     <h2 class="text-xl font-semibold">{{ title }}</h2>
     <template v-if="showList.length">
@@ -21,7 +29,7 @@ import type { IShow } from '@/types'
 import { computed, ref } from 'vue'
 import { useShowsStore } from '@/stores/shows'
 import BasePageView from '@/components/Base/PageView/index.vue'
-import HeaderSearch from '@/components/Header/Search.vue'
+import HeaderMobileSubPage from '@/components/Header/MobileSubPage.vue'
 import Loader from '@/components/Icons/Loading.vue'
 import ShowGridList from '@/components/Show/GridList.vue'
 
@@ -34,10 +42,9 @@ const query = ref('')
 
 let typingTimeout = ref<number | undefined>(undefined)
 
-const logSearch = (search: string) => {
+const logSearch = () => {
   isTyping.value = true
   loading.value = true
-  query.value = search
 
   if (typingTimeout.value) {
     clearTimeout(typingTimeout.value)
@@ -45,7 +52,7 @@ const logSearch = (search: string) => {
 
   typingTimeout.value = setTimeout(async () => {
     isTyping.value = false
-    searchResults.value = await searchShows(search)
+    searchResults.value = await searchShows(query.value)
     loading.value = false
   }, 600)
 }

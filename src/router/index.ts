@@ -22,6 +22,11 @@ const router = createRouter({
       path: '/shows/hot',
       name: 'NewHotShowsView',
       component: () => import('@/views/NewHotShows.vue')
+    },
+    {
+      path: '/watchlist',
+      name: 'WatchListView',
+      component: () => import('@/views/WatchListView.vue')
     }
   ]
 })
