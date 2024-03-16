@@ -6,7 +6,7 @@
 
     <h2 class="text-xl font-semibold">Most Highly Rated</h2>
 
-    <GenreGroup v-for="i in getShowsByGenre" v-bind="i" :key="i.genre" />
+    <GenreGroup v-for="i in getMostPopularShows" v-bind="i" :key="i.genre" />
 
     <template #footer>
       <NavbarMobile />
@@ -20,5 +20,5 @@ import { useShowsStore } from '@/stores/shows'
 import GenreGroup from '@/components/GenreGroup/index.vue'
 
 const showsStore = useShowsStore()
-const { getShowsByGenre } = storeToRefs(showsStore)
+const { getMostPopularShows } = storeToRefs(showsStore)
 </script>
