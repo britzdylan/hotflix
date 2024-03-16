@@ -25,7 +25,7 @@ export interface IShowDetailed extends IShow {
   officialSite: string
   premiered: string
   ended: string | null
-  language: string
+  language: string | null
   network: string | null
   webChannel: string | null
   seasons: number
