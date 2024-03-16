@@ -34,14 +34,17 @@ async function fetchAndSaveData() {
         throw new Error(`Failed to fetch data. Status: ${response.status}`)
       }
       const data = await response.json()
-      const optimisedData = data.map(({ id, name, genres, image, rating, language }) => ({
-        id,
-        name,
-        genres,
-        image,
-        rating,
-        language
-      }))
+      const optimisedData = data.map(
+        ({ id, name, genres, image, rating, language, premiered }) => ({
+          id,
+          name,
+          genres,
+          image,
+          rating,
+          language,
+          premiered
+        })
+      )
 
       let filteredData = optimisedData.filter((show) => containsItems(show.genres))
       filteredData = filteredData.filter((show) => show.rating.average !== null)
@@ -59,7 +62,8 @@ async function fetchAndSaveData() {
         name: show.name,
         genres: show.genres,
         rating: show.rating.average,
-        image: show.image?.medium
+        image: show.image?.medium,
+        premiered: show.premiered
       }
     })
 
