@@ -19,10 +19,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useWatchListStore } from '@/stores/watchList'
-import BasePageView from '@/components/Base/PageView/index.vue'
-import HeaderMobileSubPage from '@/components/Header/MobileSubPage.vue'
 import ShowGridList from '@/components/Show/GridList.vue'
-import Header from '@/components/Header/index.vue'
 
 const { getWatchListShows } = useWatchListStore()
 

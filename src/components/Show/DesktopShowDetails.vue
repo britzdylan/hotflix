@@ -7,8 +7,8 @@
     >
       <IconsX class="absolute top-2 right-2 z-20" @click="closePopup" />
       <template v-if="showData">
-        <ShowStatus :status="showData.ended" class="absolute top-5 left-8 z-20" />
-        <ShowRating :rating="showData.rating" class="absolute top-12 left-8 z-20" />
+        <ShowStatusTextIcon :status="showData.ended" class="absolute top-5 left-8 z-20" />
+        <ShowAverageRating :rating="showData.rating" class="absolute top-12 left-8 z-20" />
       </template>
       <div class="relative overflow-hidden flex-grow h-96">
         <BaseGradientCover class="rotate-180" />
@@ -48,8 +48,8 @@ import { useShowsStore } from '@/stores/shows'
 import IconsX from '@/components/Icons/X.vue'
 import BaseGradientCover from '@/components/Base/GradientCover.vue'
 import ShowDetails from './ShowDetails.vue'
-import ShowRating from './Rating.vue'
-import ShowStatus from './Status.vue'
+import ShowAverageRating from './AverageRating.vue'
+import ShowStatusTextIcon from './StatusTextIcon.vue'
 import ShowSlideShow from './SlideShow.vue'
 
 const route = useRoute()
@@ -76,5 +76,3 @@ onBeforeMount(async () => {
   isLoading.value = false
 })
 </script>
-
-<style scoped></style>

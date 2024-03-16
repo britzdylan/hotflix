@@ -24,8 +24,8 @@
       </div>
 
       <div v-if="showData" class="inline-flex items-start w-full justify-between">
-        <ShowRating :rating="showData.rating" />
-        <ShowStatus :status="showData.ended" />
+        <ShowAverageRating :rating="showData.rating" />
+        <ShowStatusTextIcon :status="showData.ended" />
       </div>
 
       <ShowDetails
@@ -50,8 +50,8 @@ import { ref, computed, onMounted, onBeforeMount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useShowsStore } from '@/stores/shows'
 import IconsX from '@/components/Icons/X.vue'
-import ShowRating from '@/components/Show/Rating.vue'
-import ShowStatus from '@/components/Show/Status.vue'
+import ShowAverageRating from '@/components/Show/AverageRating.vue'
+import ShowStatusTextIcon from '@/components/Show/StatusTextIcon.vue'
 import ShowSlideShow from '@/components/Show/SlideShow.vue'
 import ShowDetails from '@/components/Show/ShowDetails.vue'
 import BaseGradientCover from '@/components/Base/GradientCover.vue'

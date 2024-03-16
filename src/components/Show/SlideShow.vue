@@ -1,11 +1,11 @@
 <template>
   <div
     v-for="(i, index) in images"
+    :key="index + i"
     :class="['z-0 overflow-hidden absolute top-0 left-0 right-0', containerClass]"
   >
     <img
       v-show="index == currentIndex"
-      :key="index + i"
       :class="['transition-all', { 'scale-up': images.length > 1 }, imageClass]"
       :src="i"
     />

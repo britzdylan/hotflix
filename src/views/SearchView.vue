@@ -28,9 +28,6 @@
 import type { IShow } from '@/types'
 import { computed, ref } from 'vue'
 import { useShowsStore } from '@/stores/shows'
-import BasePageView from '@/components/Base/PageView/index.vue'
-import HeaderMobileSubPage from '@/components/Header/MobileSubPage.vue'
-import Loader from '@/components/Icons/Loading.vue'
 import ShowGridList from '@/components/Show/GridList.vue'
 
 const { getRecommendedShows, searchShows } = useShowsStore()

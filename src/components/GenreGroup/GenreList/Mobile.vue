@@ -1,14 +1,14 @@
 <template>
   <div class="flex gap-2 snap-proximity snap-x overflow-x-auto no-scrollbar">
     <RouterLink v-for="item in shows" :key="item.id + '_show'" :to="`shows/${item.id}`">
-      <ShowCard class="w-[105px]" v-bind="item"></ShowCard>
+      <ListingCard class="w-[105px]" v-bind="item"></ListingCard>
     </RouterLink>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { IShow } from '@/types'
-import ShowCard from '@/components/Show/Card.vue'
+import ListingCard from '@/components/Show/ListingCard.vue'
 interface props {
   shows: IShow[]
 }

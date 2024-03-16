@@ -13,9 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import type { IShow } from '@/types'
+interface IProps {
+  image: string
+  name: string
+}
 
-defineProps<IShow>()
+defineProps<IProps>()
 </script>
 
 <style scoped></style>

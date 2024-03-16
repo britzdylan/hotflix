@@ -18,13 +18,12 @@
   >
     <BaseButton> Official Site </BaseButton>
   </a>
-  <WishListAdd :showId="showId" />
+  <WatchListAddButton :showId="showId" />
   <div v-html="summary" class="text-sm text-neutral-200"></div>
 </template>
 
 <script setup lang="ts">
-import BaseButton from '@/components/Base/Button.vue'
-import WishListAdd from '@/components/WishList/Add.vue'
+import WatchListAddButton from '@/components/WatchList/AddButton.vue'
 import { computed } from 'vue'
 
 interface IProps {

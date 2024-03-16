@@ -15,11 +15,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useShowsStore } from '@/stores/shows'
-import BasePageView from '@/components/Base/PageView/index.vue'
-import Header from '@/components/Header/index.vue'
 import ShowGridList from '@/components/Show/GridList.vue'
-import NavbarMobile from '@/components/Navbar/Mobile.vue'
-import HeaderMobileSubPage from '@/components/Header/MobileSubPage.vue'
+
 
 const { getHotNewShows } = useShowsStore()
 

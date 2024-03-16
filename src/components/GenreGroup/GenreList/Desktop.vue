@@ -21,13 +21,13 @@
       class="flex gap-4 relative transition-all ease-in-out duration-500"
     >
       <!-- Item Start -->
-      <ShowCard
+      <ListingCard
         @click="showPopup(`show_${k.id}`)"
         class="cursor-pointer hover:scale-95 hover:outline outline-2 outline-offset-1 outline-neutral-50 transition-transform duration-300 ease-out"
         v-for="k in shows"
         v-bind="k"
         :key="k + '_show'"
-      ></ShowCard>
+      ></ListingCard>
       <!-- Item end -->
     </div>
   </div>
@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import ShowCard from '@/components/Show/Card.vue'
+import ListingCard from '@/components/Show/ListingCard.vue'
 import IconsChevronDouble from '@/components/Icons/ChevronDouble.vue'
 import type { IShow } from '@/types'
 import { usePopup } from '@/composables/popup'
