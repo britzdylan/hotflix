@@ -13,7 +13,7 @@
         >
       </li>
       <li>
-        <RouterLink class="text-neutral-50 hover:text-neutral-300" to="/watchlist"
+        <RouterLink class="text-neutral-50 hover:text-neutral-300" to="/shows/hot"
           >New & hot</RouterLink
         >
       </li>
