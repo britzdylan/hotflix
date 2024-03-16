@@ -3,11 +3,13 @@
     <template #header>
       <HeaderMobileSubPage class="!justify-start">
         <input
+          ref="searchInput"
           v-model="query"
           @input="startSearch"
           type="search"
           class="bg-neutral-700 placeholder:text-neutral-400 border-none text-white w-full px-4 py-3 rounded-md outline-none"
           placeholder="Search for show names"
+          name="ShowSearch"
         />
       </HeaderMobileSubPage>
     </template>
@@ -28,6 +30,12 @@
 import ShowGridList from '@/components/Show/GridList.vue'
 
 import { useShowSearch } from '@/composables/showSearch'
+import { onMounted, ref } from 'vue'
 
+const searchInput = ref<HTMLInputElement | null>(null)
 const { query, showList, loading, startSearch, title } = useShowSearch()
+
+onMounted(() => {
+  searchInput.value?.focus()
+})
 </script>
