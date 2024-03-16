@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import type { ICachedShow, IShow, IShowDetailed, TGenre, TGenres } from '@/types'
 import { getData } from '@/service/api'
 import genres from '@/data/genres.json'
-import allShows from '@/data/db.json'
+import allShows from '@/data/shows.json'
 
 export const useShowsStore = defineStore('showStore', {
   state: () => {
@@ -18,7 +18,22 @@ export const useShowsStore = defineStore('showStore', {
     getShowsByGenre: (state) => {
       return (genre: TGenre) =>
         state.allShows.filter((show) => show.genres[0] === genre).slice(0, 9)
+    },
+    getHotNewShows: (state) => {
+      const oneYearAgo = new Date()
+      oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1)
+
+      return state.allShows
+        .filter((show) => show.rating >= 7.5)
+        .filter((show) => show.premiered && new Date(show.premiered) >= oneYearAgo)
+        .sort((a, b) => b.rating - a.rating)
     }
+    // getRecommendedShows: (state) => {
+    //   return state.allShows
+    //     .filter((show) => show.rating >= 7.5)
+    //     .sort(() => Math.random() - 0.5)
+    //     .slice(0, 27)
+    // }
   },
   actions: {
     prepareShowData(rawData: any): IShowDetailed {
