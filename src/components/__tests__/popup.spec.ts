@@ -1,5 +1,5 @@
 import { test, expect, vi } from 'vitest'
-import { useRoute } from 'vue-router'
+
 const { usePopup } = await import('@/composables/popup')
 
 let route = {
