@@ -31,7 +31,7 @@ async function fetchAndSaveData() {
         throw new Error(`Failed to fetch data. Status: ${response.status}`)
       }
       const data = await response.json()
-      const optimisedData = filterData(data).map(
+      const optimizedData = filterData(data).map(
         ({ id, name, genres, image, rating, premiered }) => ({
           id,
           name,
@@ -42,7 +42,7 @@ async function fetchAndSaveData() {
         })
       )
 
-      allData.push(...optimisedData)
+      allData.push(...optimizedData)
       page++
     }
 
@@ -55,5 +55,4 @@ async function fetchAndSaveData() {
   }
 }
 
-// Call the function to start fetching and saving data
 fetchAndSaveData()
