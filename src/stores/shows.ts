@@ -41,7 +41,7 @@ export const useShowsStore = defineStore('showStore', {
         return {
           genre,
           shows: this.allShows
-            .filter((show) => show.genres[0] === genre)
+            .filter((show) => show.genres.includes(genre))
             .sort((a, b) => b.rating - a.rating)
             .slice(0, 9)
         }
@@ -53,7 +53,7 @@ export const useShowsStore = defineStore('showStore', {
         const length = currentGenre.shows.length
         const showsToAdd = length + 3
         const newShows = this.allShows
-          .filter((show) => show.genres[0] === genre)
+          .filter((show) => show.genres.includes(genre))
           .sort((a, b) => b.rating - a.rating)
           .slice(length, showsToAdd)
         this.mostPopularShows = this.mostPopularShows.map((item) => {
