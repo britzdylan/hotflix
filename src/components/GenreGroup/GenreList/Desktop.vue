@@ -66,10 +66,7 @@ onMounted(() => {
 const nextSlide = () => {
   if (currentIndex.value + slidesVisible.value >= props.shows.length - 1) {
     traverseShowsPerGenre(props.genre)
-    console.log('traversing')
   }
-
-  console.log('currentIndex', currentIndex.value + slidesVisible.value, props.shows.length - 1)
 
   currentIndex.value += 2
 }
