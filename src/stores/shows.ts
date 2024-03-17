@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { ICachedShow, IShow, IShowDetailed, TGenre, TGenres } from '@/types'
-import { getData } from '@/service/api'
+import { getData } from '@/services/api'
 import genres from '@/data/genres.json'
 import allShows from '@/data/shows.json'
 
