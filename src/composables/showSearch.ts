@@ -1,5 +1,5 @@
-import { ref, computed } from 'vue'
 import type { IShow } from '@/types'
+import { ref, computed } from 'vue'
 import { useShowsStore } from '@/stores/shows'
 
 export function useShowSearch() {
