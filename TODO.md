@@ -1,0 +1,11 @@
+- unit test
+  -- [ ] composables
+  -- [ ] stores
+  -- [ ] components
+  -- [ ] services
+  -- [x] utils
+
+- refactor stores
+- store tests
+- readme
+- github actions

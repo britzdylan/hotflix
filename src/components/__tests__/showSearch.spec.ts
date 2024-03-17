@@ -1,7 +1,7 @@
-import { test, vi, expect, beforeEach, afterEach } from 'vitest'
+import { test, vi, expect, beforeEach } from 'vitest'
 import { useShowSearch } from '@/composables/showSearch'
-import { withSetup } from './utils/withSetup'
 import { flushPromises } from '@vue/test-utils'
+
 vi.mock('@/stores/shows', () => {
   return {
     useShowsStore: () => {
@@ -40,13 +40,13 @@ beforeEach(() => {
 })
 
 test('useShowSearch', async () => {
-  const [result, app] = withSetup(useShowSearch)
+  const { loading, query, isTyping, title, showList, startSearch } = useShowSearch()
 
-  expect(result.loading.value).toBe(false)
-  expect(result.query.value).toBe('')
-  expect(result.isTyping.value).toBe(false)
-  expect(result.title.value).toBe('Recommended shows')
-  expect(result.showList.value).toMatchInlineSnapshot(`
+  expect(loading.value).toBe(false)
+  expect(query.value).toBe('')
+  expect(isTyping.value).toBe(false)
+  expect(title.value).toBe('Recommended shows')
+  expect(showList.value).toMatchInlineSnapshot(`
       [
         {
           "id": 1,
@@ -56,20 +56,20 @@ test('useShowSearch', async () => {
       ]
     `)
 
-  result.query.value = 'The Show'
-  result.startSearch()
+  query.value = 'The Show'
+  startSearch()
 
-  expect(result.isTyping.value).toBe(true)
-  expect(result.loading.value).toBe(true)
+  expect(isTyping.value).toBe(true)
+  expect(loading.value).toBe(true)
 
   vi.advanceTimersByTime(700)
 
   await flushPromises()
 
-  expect(result.isTyping.value).toBe(false)
-  expect(result.title.value).toBe('Search results for: The Show')
-  expect(result.loading.value).toBe(false)
-  expect(result.showList.value).toMatchInlineSnapshot(`
+  expect(isTyping.value).toBe(false)
+  expect(title.value).toBe('Search results for: The Show')
+  expect(loading.value).toBe(false)
+  expect(showList.value).toMatchInlineSnapshot(`
     [
       {
         "id": 2,
@@ -78,5 +78,4 @@ test('useShowSearch', async () => {
       },
     ]
   `)
-  app.unmount()
 })
