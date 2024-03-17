@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, defineAsyncComponent } from 'vue'
+import { ref, computed, onMounted, defineAsyncComponent, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useShowDetails } from '@/composables/showDetails'
 
@@ -61,6 +61,10 @@ const { showDetails, getImages } = useShowDetails()
 const scrollY = ref(0)
 const showDetailsSection = ref()
 const translateY = ref(0)
+
+onBeforeMount(() => {
+  if (window.innerWidth > 768) router.back()
+})
 
 onMounted(async () => {
   scrollY.value = window.scrollY
