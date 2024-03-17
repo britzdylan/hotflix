@@ -27,6 +27,11 @@ const router = createRouter({
       path: '/watchlist',
       name: 'WatchListView',
       component: () => import('@/views/WatchListView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFOundView',
+      component: () => import('@/views/NotFoundView.vue')
     }
   ]
 })
