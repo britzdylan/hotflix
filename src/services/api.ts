@@ -14,9 +14,9 @@ const fetchFromApi = async (url: string, options: RequestInit): Promise<any | Ap
     if (!response.ok) {
       switch (response.status) {
         case HttpStatusCode.NOT_FOUND:
-          throw new Error('Endpoint not found')
+          return new Error('Endpoint not found')
         default:
-          throw new Error('An error occurred while fetching data')
+          return new Error('An error occurred while fetching data')
       }
     }
 
