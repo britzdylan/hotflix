@@ -90,7 +90,7 @@ export const useShowsStore = defineStore('showStore', {
       const item = { data: showData, timestamp: timestamp }
       localStorage.setItem(show.id.toString(), JSON.stringify(item))
     },
-    getCachedShow(id: number): ICachedShow | null {
+    getCachedShow(id: Number): ICachedShow | null {
       const currentTime = Date.now()
       const cachedShow = localStorage.getItem(id.toString())
       if (cachedShow) {
@@ -107,7 +107,7 @@ export const useShowsStore = defineStore('showStore', {
       }
       return null
     },
-    async getShowById(id: number): Promise<IShowDetailed> {
+    async getShowById(id: Number): Promise<IShowDetailed> {
       const cachedShow = this.getCachedShow(id)
       if (cachedShow) {
         return cachedShow.data
