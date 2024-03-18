@@ -36,7 +36,7 @@ npm install
 3. Start the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
 4. Open the app in your browser:
@@ -61,19 +61,45 @@ npm test:unit
 
 ## Architecture and Design
 
+- **App like experience**: This app is designed to provide an app-like experience for users, with a fast and responsive user interface. Hence the use of Vite & Vue3 to provide a fast and leaner development experience for modern web projects.
+
+- **User Interface**: This app uses Tailwind CSS, a utility-first CSS framework for building custom designs. The user interface is designed to be simple, clean, and user-friendly.
+
+- **User Experience**: This app is designed to provide a fast and enjoyable user experience. The user interface is responsive and accessible, and the app is optimized for performance.
+
 - **Components**: This app is built with a component-based architecture, where each component is a self-contained unit that can be reused across the app.
 
-## Testing
+- **State Management**: This app uses Pinia, a state management library for Vue3 that provides a simple and fast state management experience.
+
+- **Routing**: This app uses Vue Router, a routing library for Vue3 that provides a simple and fast routing experience.
+
+- **API**: This app uses the TVmaze API to fetch TV show data.
+
+-- **Local Data**: This app local snapshots of the TVmaze API to provide a fast and reliable user experience.
+
+-- **data synchronization**: This app uses a data synchronization strategy to keep the local data up to date with the TVmaze API. The local data is updated periodically to ensure that it is always up to date via a cron job.
+
+-- **Caching**: This app uses a caching strategy to cache the TV show data and provide a fast and reliable user experience.
 
 - **Unit Tests**: This app is tested with unit tests that cover the composables and the state management along with some utility functions.
 
-## Deployment
+- **Deployment**: This app is deployed on Render, a cloud platform that provides a simple and fast deployment experience for modern web projects.
 
-- **Render**: This app is deployed on Render, a cloud platform that provides a simple and fast deployment experience for modern web projects.
-
-### Roadmap
+## Roadmap
 
 - **User Authentication**: Add user authentication to allow users to create an account and log in.
+
+- **Episodes**: Add the ability to view the episodes of a TV show.
+
+- **Comments**: Add the ability to comment on TV shows.
+
+- **Recommendations**: Add the ability to recommend TV shows to other users.
+
+- **Public User Profiles**: Add user profiles to allow users to view their watch list and recommendations.
+
+- **Integration Tests**: Add integration tests to cover the user interface and the user experience.
+
+- **e2e**: Add e2e tests to cover the user interface.
 
 ## Contributing
 
