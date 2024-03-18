@@ -1,0 +1,24 @@
+name: Weekly Sync DB
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs at 00:00 UTC every Sunday
+
+jobs:
+  syncDB:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20' # Use the version of Node.js that your project uses
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run sync-db.js
+        run: node sync-db.js
