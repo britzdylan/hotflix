@@ -75,11 +75,11 @@ npm test:unit
 
 - **API**: This app uses the TVmaze API to fetch TV show data.
 
--- **Local Data**: This app local snapshots of the TVmaze API to provide a fast and reliable user experience.
+- **Local Data**: This app local snapshots of the TVmaze API to provide a fast and reliable user experience.
 
--- **data synchronization**: This app uses a data synchronization strategy to keep the local data up to date with the TVmaze API. The local data is updated periodically to ensure that it is always up to date via a cron job.
+- **Data synchronization**: This app uses a data synchronization strategy to keep the local data up to date with the TVmaze API. The local data is updated periodically to ensure that it is always up to date via a cron job.
 
--- **Caching**: This app uses a caching strategy to cache the TV show data and provide a fast and reliable user experience.
+- **Caching**: This app uses a caching strategy to cache the TV show data and provide a fast and reliable user experience.
 
 - **Unit Tests**: This app is tested with unit tests that cover the composables and the state management along with some utility functions.
 
