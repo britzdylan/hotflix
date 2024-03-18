@@ -3,6 +3,7 @@ name: Weekly Sync DB
 on:
   schedule:
     - cron: '0 0 * * 0' # Runs at 00:00 UTC every Sunday
+  workflow_dispatch:
 
 jobs:
   syncDB:
@@ -21,4 +22,4 @@ jobs:
         run: npm ci
 
       - name: Run sync-db.js
-        run: node sync-db.js
+        run: node src/utils/sync-db.js
