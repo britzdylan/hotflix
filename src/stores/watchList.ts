@@ -26,7 +26,7 @@ export const useWatchListStore = defineStore('watchList', {
   actions: {
     initWatchList() {
       const watchList = localStorage.getItem('WatchList')
-      console.log(watchList)
+
       if (watchList) {
         this.WatchList = JSON.parse(watchList)
       }

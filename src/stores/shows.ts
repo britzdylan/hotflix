@@ -86,8 +86,7 @@ export const useShowsStore = defineStore('showStore', {
     cacheShow(show: IShowDetailed) {
       // save to local storage
       const timestamp = Date.now()
-      const showData = show
-      const item = { data: showData, timestamp: timestamp }
+      const item = { data: show, timestamp: timestamp }
       localStorage.setItem(show.id.toString(), JSON.stringify(item))
     },
     getCachedShow(id: Number): ICachedShow | null {
