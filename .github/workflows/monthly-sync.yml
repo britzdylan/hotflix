@@ -1,8 +1,8 @@
-name: Weekly Sync DB
+name: Monthly Sync DB
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Runs at 00:00 UTC every Sunday
+    - cron: '0 0 1 * *' # Runs at 00:00 UTC on the 1st day of every month
   workflow_dispatch:
 
 jobs:
@@ -31,7 +31,6 @@ jobs:
 
       - name: Commit and push if it's necessary
         uses: stefanzweifel/git-auto-commit-action@v5
-
         with:
           commit_message: Update shows.json
           file_pattern: src/data/shows.json
