@@ -2,7 +2,7 @@
 
 This app is a platform for browsing the most popular TV shows online for free. It allows users to explore a wide range of TV shows and stay up to date with the latest episodes. With a user-friendly interface and a vast collection of shows, this app provides an enjoyable streaming experience for TV enthusiasts.
 
-## Description
+[View the live site here](https://notflix-3v7t.onrender.com/)
 
 ### Features
 
