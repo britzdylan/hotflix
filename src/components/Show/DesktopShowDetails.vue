@@ -46,9 +46,10 @@ import IconsX from '@/components/Icons/X.vue'
 import BaseGradientCover from '@/components/Base/GradientCover.vue'
 import ShowAverageRating from './AverageRating.vue'
 import ShowStatusTextIcon from './StatusTextIcon.vue'
+import { usePopup } from '@/composables/popup'
 
 const ShowSlideShow = defineAsyncComponent(() => import('@/components/Show/SlideShow.vue'))
 const ShowDetails = defineAsyncComponent(() => import('@/components/Show/ShowDetails.vue'))
-
-const { showDetails, getImages, closePopup } = useShowDetails()
+const { closePopup } = usePopup()
+const { showDetails, getImages } = useShowDetails()
 </script>
