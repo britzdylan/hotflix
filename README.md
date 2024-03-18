@@ -1,45 +1,19 @@
-# Notflix
+# HOTFLIX
 
-This template should help get you started developing with Vue 3 in Vite.
+This app is a platform for browsing the most popular TV shows online for free. It allows users to explore a wide range of TV shows and stay up to date with the latest episodes. With a user-friendly interface and a vast collection of shows, this app provides an enjoyable streaming experience for TV enthusiasts.
 
-## Recommended IDE Setup
+## Description
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Prerequisites
 
-## Type Support for `.vue` Imports in TS
+- Node.js (v20.0.0 or later)
+- npm (v6.0.0 or later)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### Installation
 
-## Customize configuration
+1. Clone the repository:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+```bash
+git clone https://github.com/username/repository.git
+cd repository
 ```
