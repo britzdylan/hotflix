@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { expect, vi, test, it } from 'vitest'
 import { flushPromises } from '@vue/test-utils'
 import { useShowDetails } from '@/composables/showDetails'
-import { withSetup } from './utils/withSetup'
+import { withSetup } from '../../components/__tests__/utils/withSetup'
 
 vi.mock('@/composables/popup')
 

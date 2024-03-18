@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { parseShowQueryStringToNumber, parseRouteParamsToNumber } from '../../utils/helpers'
+import { parseShowQueryStringToNumber, parseRouteParamsToNumber } from '../helpers'
 
 test('parseShowQueryStringToNumber', () => {
   expect(parseShowQueryStringToNumber('show_123')).toBe(123)
