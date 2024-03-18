@@ -9,7 +9,7 @@ module.exports = {
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting'
   ],
-  ignorePatterns: ['syncDB.js'],
+  ignorePatterns: ['src/utils/sync-db.js'],
   parserOptions: {
     ecmaVersion: 'latest'
   },

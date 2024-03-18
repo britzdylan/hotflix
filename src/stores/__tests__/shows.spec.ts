@@ -1,8 +1,7 @@
 import { test, expect, vi, beforeEach, afterEach } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import { useShowsStore } from '../shows'
-import { get } from 'http'
-const LOCAL_STORAGE_KEY = 'WatchList'
+
 const TIME_STAMP = 1710724892061
 const getItemSpy = vi.spyOn(Storage.prototype, 'getItem')
 const setItemSpy = vi.spyOn(Storage.prototype, 'setItem')

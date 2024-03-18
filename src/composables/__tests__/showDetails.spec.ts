@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { expect, vi, test, it } from 'vitest'
+import { expect, vi, test } from 'vitest'
 import { flushPromises } from '@vue/test-utils'
 import { useShowDetails } from '@/composables/showDetails'
 import { withSetup } from '../../components/__tests__/utils/withSetup'
@@ -33,9 +33,9 @@ vi.mock('@/stores/shows', () => {
 })
 
 test('showDetails with popup & no route params', async () => {
-  let mock = await import('@/composables/popup')
+  const mock = await import('@/composables/popup')
   mock.usePopup = vi.fn().mockReturnValue({ popup: ref('show_1') })
-  let mockRouter = await import('vue-router')
+  const mockRouter = await import('vue-router')
   mockRouter.useRoute = vi.fn().mockReturnValue({ params: {} })
 
   const [result, app] = withSetup(useShowDetails)
@@ -62,9 +62,9 @@ test('showDetails with popup & no route params', async () => {
 })
 
 test('showDetails with route params & no popup', async () => {
-  let mock = await import('@/composables/popup')
+  const mock = await import('@/composables/popup')
   mock.usePopup = vi.fn().mockReturnValue({ popup: ref('') })
-  let mockRouter = await import('vue-router')
+  const mockRouter = await import('vue-router')
   mockRouter.useRoute = vi.fn().mockReturnValue({ params: { id: '2' } })
 
   const [result, app] = withSetup(useShowDetails)
@@ -91,9 +91,9 @@ test('showDetails with route params & no popup', async () => {
 })
 
 test('showDetails with no popup & no route params', async () => {
-  let mock = await import('@/composables/popup')
+  const mock = await import('@/composables/popup')
   mock.usePopup = vi.fn().mockReturnValue({ popup: ref('') })
-  let mockRouter = await import('vue-router')
+  const mockRouter = await import('vue-router')
   mockRouter.useRoute = vi.fn().mockReturnValue({ params: {} })
 
   const [result, app] = withSetup(useShowDetails)
@@ -106,9 +106,9 @@ test('showDetails with no popup & no route params', async () => {
 })
 
 test('showDetails with  popup &  route params - should default to popup first', async () => {
-  let mock = await import('@/composables/popup')
+  const mock = await import('@/composables/popup')
   mock.usePopup = vi.fn().mockReturnValue({ popup: ref('show_1') })
-  let mockRouter = await import('vue-router')
+  const mockRouter = await import('vue-router')
   mockRouter.useRoute = vi.fn().mockReturnValue({ params: { id: 2 } })
 
   const [result, app] = withSetup(useShowDetails)

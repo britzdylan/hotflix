@@ -1,5 +1,5 @@
 import { getData } from '@/services/api'
-import { test, vi, expect, beforeAll, afterAll } from 'vitest'
+import { test, expect, beforeAll, afterAll } from 'vitest'
 import { setupServer } from 'msw/node'
 import { http, HttpResponse } from 'msw'
 

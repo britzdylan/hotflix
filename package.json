@@ -10,7 +10,7 @@
     "test:unit": "vitest --root src/",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --ignore src/utils/sync-db.js",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "prepare": "npm run lint && npm run format && npm run type-check",
     "sync:db": "node src/utils/sync-db.js"
